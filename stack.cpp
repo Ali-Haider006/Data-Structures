@@ -4,33 +4,34 @@ class sta{
 	public:
 	int size, top;
 	int *s;
-		sta()
-		{
-			size=5;
-			s=new int[size];
-			top=-1;
-		}
+	//Creating constructor to initialize the data values
+	sta()
+	{
+	    size=5;
+	    s=new int[size];
+            top=-1;
+	}
 	sta(int s1)
 	{
-		size=s1;
-		s=new int[size];
-		top=-1;
+	    size=s1;
+            s=new int[size];
+	    top=-1;
 	}
+	//push method to elements insert in stack
 	void push(int x)	
+	{
+		if(is_full())
 		{
-			if(is_full())
-			{
-				// cout<<"\n No space ";
-			}
-			else
-			{
-				s[++top]=x;
-				// cout<<"\n Value pushed is: "<<s[top];
-				
-			}
+			// cout<<"\n No space ";
 		}
-		
-		
+		else
+		{
+			s[++top]=x;
+			// cout<<"\n Value pushed is: "<<s[top];
+
+		}
+	}
+	//pop method to remove elements in stack		
 	int pop()
 	{
 		int x=-1;
@@ -44,7 +45,7 @@ class sta{
 		}
 		return x;
 	}
-	
+	//is_full method will return true/false to classify whether stack is full or not
 	bool is_full()
 	{
 		if(top==size-1)
@@ -52,7 +53,7 @@ class sta{
 		else
 			return false;
 	}
-	
+	//is_empty method will return true/false to classify whether stack is empty or not
 	bool is_empty()
 	{
 		if(top==-1)
@@ -60,6 +61,7 @@ class sta{
 		else
 			return false;
 	}
+	//display method will simply the data of stack by iteration
 	void display()
 	{
 		cout<<"\n In Display method";
@@ -69,7 +71,8 @@ class sta{
 			for(int i=top; i>=0; i--){
 			
 				cout<<"\n Value at index "<<i<<" is: "<<s[i];
-	}}
+			}
+	}
 };
 
 int main()
